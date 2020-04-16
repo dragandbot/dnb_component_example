@@ -1,0 +1,10 @@
+package: dnb_component_example
+name: "dnb Component Example"
+description: "This is a component example"
+type: example/component
+roslaunch: start.launch
+configuration: []
+nodes:
+  - node_callerid: /add_two_numbers
+    type: program.py
+status_topic: /add_two_numbers/status

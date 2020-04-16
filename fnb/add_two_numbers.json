@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "errorcodes": [],
+    "skip": false,
+    "type": "Basic",
+    "title": "AddTwoNumbers",
+    "description": null,
+    "image": "dnb-icon-general_skill",
+    "script": "#!/usr/bin/env python\n\n# optional IMPORTS\n# e.g import rospy\nimport rospy\nfrom dnb_component_example.srv import *\n\ndef execute(input_parameters, output_parameters):\n\t\n\tadd_two_ints = rospy.ServiceProxy('add_two_numbers', AddTwoNumbers)\n\tnumber1 = int(input_parameters[0][\"value\"])\n\tnumber2 = int(input_parameters[1][\"value\"])\n\tresp1 = add_two_ints(number1, number2)\n\toutput_parameters[0][\"value\"] = str(resp1.result)\n\t\n\t# RUNS ON BLOCK EXECUTION\n\t# do actions with hardware, software\n\t# produce outputs\n\treturn output_parameters\n\n#def abort():\n\t# RUNS ON MANUAL ABORT OR AFTER ERROR\n\t# stop pending actions, clean up resources\n\t#pass",
+    "identifier": "bd308fe1-f4a6-444a-8314-344046b72301",
+    "inputParameters": [
+        {
+            "availableOptions": [],
+            "paramId": "65a0aac7-6a54-49ea-9a22-aa9832722574",
+            "displayTitle": "number1",
+            "title": "number1",
+            "description": null,
+            "value": null,
+            "type": "primitive",
+            "parameters": [],
+            "dataType": "float",
+            "reference": null,
+            "constraints": []
+        },
+        {
+            "availableOptions": [],
+            "paramId": "ab9a135f-ddf0-4242-8f9a-2db3bbe2de78",
+            "displayTitle": "number2",
+            "title": "number2",
+            "description": null,
+            "value": null,
+            "type": "primitive",
+            "parameters": [],
+            "dataType": "float",
+            "reference": null,
+            "constraints": []
+        }
+    ],
+    "outputParameters": [
+        {
+            "availableOptions": [],
+            "paramId": "55ba1009-4590-498c-9d72-4214ca3a29ac",
+            "displayTitle": "result",
+            "title": "result",
+            "description": null,
+            "value": null,
+            "type": "primitive",
+            "parameters": [],
+            "dataType": "float",
+            "reference": null,
+            "constraints": []
+        }
+    ],
+    "globalParameters": [],
+    "models": [],
+    "format": "linked#2.4.0"
+}

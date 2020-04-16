@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- Start the driver simulator-->
+	<node name="add_two_numbers" pkg="dnb_component_example" type="program.py"></node>
+
+</launch>
