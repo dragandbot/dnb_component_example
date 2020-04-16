@@ -6,8 +6,17 @@ from dnb_component_example.srv import *
 from dnb_msgs.msg import *
 
 def handle(request):
+
+	# get param gets in this case a string value
+	use_offset = str(rospy.get_param('~use_offset', "true" )).lower() == "true"
+
+	if use_offset:
+		offset = int(rospy.get_param('~offset', "0" )) # Read the ROS parameter coming from the launch file in the same workspace as the node
+	else:
+		offset = 0
+
 	response = AddTwoNumbersResponse()
-	response.result = request.number1 + request.number2
+	response.result = request.number1 + request.number2 + offset
 	return response
 
 if __name__ == "__main__":

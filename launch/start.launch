@@ -1,7 +1,13 @@
 <?xml version="1.0"?>
 <launch>
 
+	<arg name="offset" default="0"/> <!-- name must be the same as the id in the module_X.yaml file -->
+	<arg name="use_offset" default="true"/>
+
 	<!-- Start the driver simulator-->
-	<node name="add_two_numbers" pkg="dnb_component_example" type="program.py"></node>
+	<node name="add_two_numbers" pkg="dnb_component_example" type="program.py">
+		<param name="offset" value="$(arg offset)"/> <!-- This makes the parameter available in ROS node -->
+		<param name="use_offset" value="$(arg use_offset)"/> <!-- This makes the parameter available in ROS node -->
+	</node>
 
 </launch>

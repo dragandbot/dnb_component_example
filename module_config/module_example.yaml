@@ -3,7 +3,38 @@ name: "dnb Component Example"
 description: "This is a component example"
 type: example/component
 roslaunch: start.launch
-configuration: []
+configuration:
+  - id: offset
+    namespace: ''
+    name: 'Sum offset'
+    description: 'This value will be taken as offset in the sum'
+    datatype: int
+    default: '0'
+  - id: float_example
+    namespace: ''
+    name: 'Float example'
+    description: 'Float example'
+    datatype: float
+    default: '1.47'
+  - id: string_example
+    namespace: ''
+    name: 'String example'
+    description: 'String example'
+    datatype: string
+    default: 'This is an example'
+  - id: selection_example
+    name: 'Selector example'
+    description: 'This is a selector example'
+    namespace: ''
+    datatype: select
+    available: ['Option A', 'Option B', 'Option C']
+    default: 'Option A'
+  - id: use_offset
+    name: 'Use offset'
+    description: 'This selects if we want to use the offset or not'
+    namespace: ''
+    datatype: bool
+    default: 'true'
 nodes:
   - node_callerid: /add_two_numbers
     type: program.py
